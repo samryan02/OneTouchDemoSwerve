@@ -20,8 +20,8 @@ public class Constants {
   // public static int rightMotor = 2;
   
   public static double Length = 960;
-  public static double Width = 672;
-  public static double R = 1172;
+  public static double Width = 576;
+  public static double R = Math.sqrt((960*960)+(576*576));
   // If you are using multiple modules, make sure to define both the port
   // number and the module. For example you with a rangefinder:
   // public static int rangefinderPort = 1;

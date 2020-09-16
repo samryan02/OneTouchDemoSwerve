@@ -31,8 +31,8 @@ public class FLmodule extends Subsystem {
 
   public FLmodule() {
     //initialize neos
-    FrontLeftNeo1 = new CANSparkMax(2, MotorType.kBrushless);
-    FrontLeftNeo2 = new CANSparkMax(1, MotorType.kBrushless);
+    FrontLeftNeo1 = new CANSparkMax(1, MotorType.kBrushless);
+    FrontLeftNeo2 = new CANSparkMax(2, MotorType.kBrushless);
     //initialize motor contollers to coresponding motor controller
     pidControllerFL1 = FrontLeftNeo1.getPIDController();
     pidControllerFL2 = FrontLeftNeo2.getPIDController();
@@ -76,7 +76,8 @@ public class FLmodule extends Subsystem {
 
   public void setModuleSpeed(double setPoint) {
 
-    pidControllerFL2.setReference(setPoint, ControlType.kVelocity);
+    FrontLeftNeo2.set(setPoint);
+
 
   }
 

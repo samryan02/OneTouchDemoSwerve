@@ -16,15 +16,15 @@ import frc.robot.commands.Driving;
 
 // please note that the LF mod class is fully commented
 public class BLmodule extends Subsystem {
-  private CANSparkMax BackLeftNeo1;
-  private CANSparkMax BackLeftNeo2;
+  public CANSparkMax BackLeftNeo1;
+  public CANSparkMax BackLeftNeo2;
   private CANPIDController pidControllerBL1;
   private CANPIDController pidControllerBL2;
   public double kP, kI, kD, kIz, kFF, kMaxOutput, kMinOutput, maxRPM;
 
   public BLmodule() {
-    BackLeftNeo1 = new CANSparkMax(6, MotorType.kBrushless);
-    BackLeftNeo2 = new CANSparkMax(5, MotorType.kBrushless);
+    BackLeftNeo1 = new CANSparkMax(5, MotorType.kBrushless);
+    BackLeftNeo2 = new CANSparkMax(6, MotorType.kBrushless);
     pidControllerBL1 = BackLeftNeo1.getPIDController();
     pidControllerBL2 = BackLeftNeo2.getPIDController();
     BackLeftNeo1.getEncoder();
@@ -63,13 +63,17 @@ public class BLmodule extends Subsystem {
   
   public void setModuleSpeed(double setPoint) {
 
-    pidControllerBL2.setReference(setPoint, ControlType.kVelocity);
+    BackLeftNeo2.set(setPoint);
 
   }
 
   public double getModuleAngle() {
     double first = BackLeftNeo1.getEncoder().getPosition();
     return first*60;
+  }
+  public double getTurningSpeed() {
+    double first = BackLeftNeo1.getEncoder().getVelocity();
+    return first;
   }
 
   public double getWheelAngle() {

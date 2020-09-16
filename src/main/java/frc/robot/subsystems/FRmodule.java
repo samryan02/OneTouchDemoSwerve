@@ -27,8 +27,8 @@ public class FRmodule extends Subsystem {
   // here. Call these from Commands.
 
   public FRmodule() {
-    FrontRightNeo1 = new CANSparkMax(4, MotorType.kBrushless);
-    FrontRightNeo2 = new CANSparkMax(3, MotorType.kBrushless);
+    FrontRightNeo1 = new CANSparkMax(3, MotorType.kBrushless);
+    FrontRightNeo2 = new CANSparkMax(4, MotorType.kBrushless);
     pidControllerFR1 = FrontRightNeo1.getPIDController();
     pidControllerFR2 = FrontRightNeo2.getPIDController();
     FrontRightNeo1.getEncoder();
@@ -66,7 +66,8 @@ public class FRmodule extends Subsystem {
 
   public void setModuleSpeed(double setPoint) {
 
-    pidControllerFR2.setReference(setPoint, ControlType.kVelocity);
+    FrontRightNeo2.set(setPoint);
+
 
   }
 

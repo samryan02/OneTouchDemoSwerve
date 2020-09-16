@@ -48,25 +48,23 @@ public class Driving extends Command {
     wheelSpeeds = Robot.calculations.wheelSpeeds();
     
     // alter the set point varible using wheel speed
-    
+    //Robot.LBmod.BackLeftNeo2.set(0.2);
     //integrate wheel speed and angle to setpoint for each motor
-    Robot.LFmod.setModuleAngle(wheelAngles[0]);
-    Robot.LFmod.setModuleSpeed(wheelSpeeds[0]);
+    Robot.LFmod.setModuleAngle(wheelAngles[3]);
+    Robot.LFmod.setModuleSpeed(wheelSpeeds[3]);
+    //Robot.LFmod.setModuleSpeed(0.2);
     
-    BL1 = BL1+ wheelSpeeds[3];
-    BL2 = BL2- wheelSpeeds[3];
-    Robot.LBmod.setModuleAngle(wheelAngles[3]);
-    Robot.LBmod.setModuleSpeed(wheelSpeeds[3]);
-    
-    FR1 = FR1+ wheelSpeeds[1];
-    FR2 = FR2- wheelSpeeds[1];
-    Robot.FRmod.setModuleAngle(wheelAngles[1]);
-    Robot.FRmod.setModuleSpeed(wheelSpeeds[1]);
 
-    BR1 = BR1+ wheelSpeeds[2];
-    BR2 = BR2- wheelSpeeds[2];
-    Robot.BRmod.setModuleAngle(wheelAngles[2]);
-    Robot.BRmod.setModuleSpeed(wheelSpeeds[2]);
+    Robot.LBmod.setModuleAngle(wheelAngles[1]);
+    Robot.LBmod.setModuleSpeed(-wheelSpeeds[1]);
+    
+
+    Robot.FRmod.setModuleAngle(wheelAngles[2]);
+    Robot.FRmod.setModuleSpeed(-wheelSpeeds[2]);
+    //Robot.FRmod.setModuleSpeed(0.2);
+
+    Robot.BRmod.setModuleAngle(wheelAngles[0]);
+    Robot.BRmod.setModuleSpeed(wheelSpeeds[0]);
   
   }
 

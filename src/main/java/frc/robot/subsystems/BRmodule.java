@@ -64,7 +64,8 @@ public class BRmodule extends Subsystem {
   
   public void setModuleSpeed(double setPoint) {
 
-    pidControllerBR2.setReference(setPoint, ControlType.kVelocity);
+    BackRightNeo2.set(setPoint);
+
 
   }
 
