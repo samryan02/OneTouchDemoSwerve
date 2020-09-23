@@ -23,6 +23,10 @@ public class Driving extends Command {
   double BL2 = 0;
   double BR1 = 0;
   double BR2 = 0;
+  double BRpos = 0;
+  double FRpos = 0;
+  double BLpos = 0;
+  double FLpos = 0;
   public Driving() {
     //declare substem depedency
 
@@ -50,20 +54,25 @@ public class Driving extends Command {
     // alter the set point varible using wheel speed
     //Robot.LBmod.BackLeftNeo2.set(0.2);
     //integrate wheel speed and angle to setpoint for each motor
+    FLpos = Robot.LFmod.getWheelAngle();
     Robot.LFmod.setModuleAngle(wheelAngles[3]);
+    Robot.LFmod.fixOffset(FLpos);
     Robot.LFmod.setModuleSpeed(wheelSpeeds[3]);
     //Robot.LFmod.setModuleSpeed(0.2);
     
 
     Robot.LBmod.setModuleAngle(wheelAngles[1]);
+    
     Robot.LBmod.setModuleSpeed(-wheelSpeeds[1]);
     
 
     Robot.FRmod.setModuleAngle(wheelAngles[2]);
+    
     Robot.FRmod.setModuleSpeed(-wheelSpeeds[2]);
-    //Robot.FRmod.setModuleSpeed(0.2);
+
 
     Robot.BRmod.setModuleAngle(wheelAngles[0]);
+    
     Robot.BRmod.setModuleSpeed(wheelSpeeds[0]);
   
   }

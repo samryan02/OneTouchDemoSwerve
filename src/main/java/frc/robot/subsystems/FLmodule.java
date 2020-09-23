@@ -86,9 +86,14 @@ public class FLmodule extends Subsystem {
     return first*60;
   }
 
+  public void fixOffset(double setPoint) {
+
+    pidControllerFL2.setReference(setPoint, ControlType.kPosition);
+
+  }
   public double getWheelAngle() {
     double second = FrontLeftNeo2.getEncoder().getPosition();
-    return second/9;
+    return second;
   }
 
   @Override

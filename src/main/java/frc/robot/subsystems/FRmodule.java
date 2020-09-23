@@ -71,6 +71,7 @@ public class FRmodule extends Subsystem {
 
   }
 
+
   public double getModuleAngle() {
     double first = FrontRightNeo1.getEncoder().getPosition();
     return first*60;
@@ -78,7 +79,7 @@ public class FRmodule extends Subsystem {
 
   public double getWheelAngle() {
     double second = FrontRightNeo2.getEncoder().getPosition();
-    return second/9;
+    return second;
   }
 
   

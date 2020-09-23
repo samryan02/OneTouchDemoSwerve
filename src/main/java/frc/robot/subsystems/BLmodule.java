@@ -78,7 +78,7 @@ public class BLmodule extends Subsystem {
 
   public double getWheelAngle() {
     double second = BackLeftNeo2.getEncoder().getPosition();
-    return second/9;
+    return second;
   }
 
   @Override

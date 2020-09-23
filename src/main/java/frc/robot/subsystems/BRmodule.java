@@ -76,7 +76,7 @@ public class BRmodule extends Subsystem {
 
   public double getWheelAngle() {
     double second = BackRightNeo2.getEncoder().getPosition();
-    return second/9;
+    return second;
   }
 
   @Override
